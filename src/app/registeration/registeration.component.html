@@ -37,8 +37,9 @@
                                  <small *ngIf="(confirmPassword.errors?.validateEqual  ) && confirmPassword.touched" class="alert alert-danger">
                                     password  is  not match.
                                 </small>
-                                <small *ngIf="(confirmPassword.errors?.equalTo && confirmPassword.touched)" class="alert alert-danger"> password mismatch 
+                                <small *ngIf="(confirmPassword.errors?.equalTo && confirmPassword.dirty); else match"  class="alert alert-danger"> password mismatch 
                                 </small> 
+                                <small  *ngIf="(!confirmPassword.errors?.equalTo && confirmPassword.touched)">match</small>
                             </div>
                                  
                             </div>
@@ -67,6 +68,8 @@
                             </label>
                         </div>
                         <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" [disabled]="!registerationForm.valid">
+
+                        <p [@myAwesomeAnimation]='state' (click)="animateMe()">Rishabh</p>
                     </fieldset>
                 </form>
                 </div>

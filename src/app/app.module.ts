@@ -6,6 +6,9 @@ import {LoginComponent} from './login/login.component';
 import { AppComponent } from './app.component';
 import { FormsModule }   from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import {MdMenuModule, MdMenuTrigger} from '@angular/material';
 export const routes: Routes =[{
 	path:'register',
 	component:RegisterationComponent,
@@ -15,18 +18,26 @@ export const routes: Routes =[{
 {
   path:'login',
   component:LoginComponent,   
+},
+{
+  path:'home',
+  component:HomeComponent,   
 }
 ];
 @NgModule({
   declarations: [
     AppComponent,
     RegisterationComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    BrowserAnimationsModule,
+    MdMenuModule,
+    
     RouterModule.forRoot(routes)
     /*RouterModule.forRoot([
 	  	{

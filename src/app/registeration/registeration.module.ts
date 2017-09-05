@@ -5,6 +5,7 @@ import { RouterModule, Routes }   from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
  import { BrowserModule } from '@angular/platform-browser';
+ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // const routes: Routes = [
 // {
 // 	path : 'register',
@@ -20,7 +21,8 @@ import { CustomFormsModule } from 'ng2-validation'
    CommonModule,
    FormsModule,
    CustomFormsModule,
-   BrowserModule
+   BrowserModule,
+   BrowserAnimationsModule
    // RouterModule.forRoot()  
    // RouterModule.forChild(routes),
    ],
