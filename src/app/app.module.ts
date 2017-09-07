@@ -9,6 +9,10 @@ import { CustomFormsModule } from 'ng2-validation'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {MdMenuModule, MdMenuTrigger} from '@angular/material';
+import { PaginationComponent } from './pagination/pagination.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+import { StringFilterPipe }    from './pagination/filter';
 export const routes: Routes =[{
 	path:'register',
 	component:RegisterationComponent,
@@ -22,6 +26,10 @@ export const routes: Routes =[{
 {
   path:'home',
   component:HomeComponent,   
+},
+{
+  path:'pagination',
+  component:PaginationComponent,   
 }
 ];
 @NgModule({
@@ -29,7 +37,9 @@ export const routes: Routes =[{
     AppComponent,
     RegisterationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PaginationComponent,
+    StringFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -37,7 +47,7 @@ export const routes: Routes =[{
     CustomFormsModule,
     BrowserAnimationsModule,
     MdMenuModule,
-    
+    NgxPaginationModule,
     RouterModule.forRoot(routes)
     /*RouterModule.forRoot([
 	  	{
@@ -46,7 +56,7 @@ export const routes: Routes =[{
 	  	}
 	])  */  
   ],
-  exports:[RouterModule],
+  exports:[RouterModule,StringFilterPipe],
   providers: [],
   bootstrap: [AppComponent]
 })
