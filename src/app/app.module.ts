@@ -13,6 +13,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 import { StringFilterPipe }    from './pagination/filter';
+import { ImageComponent } from './image/image.component';
 export const routes: Routes =[{
 	path:'register',
 	component:RegisterationComponent,
@@ -39,7 +40,8 @@ export const routes: Routes =[{
     LoginComponent,
     HomeComponent,
     PaginationComponent,
-    StringFilterPipe
+    StringFilterPipe,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
