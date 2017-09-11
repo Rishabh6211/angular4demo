@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  width: 60%;
+  height: 70%;
+  border-radius: 3px;
+  color: #212121;
+}
+
+.front, .back {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+
+  padding: 15px 30px;
+
+  border-radius:3px;
+}
+
+.back {
+  background:#aaa;
+}
+
+.title h2 {
+  text-transform:uppercase;
+  letter-spacing:2px;
+}

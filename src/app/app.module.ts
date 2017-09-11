@@ -14,6 +14,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 import { StringFilterPipe }    from './pagination/filter';
 import { ImageComponent } from './image/image.component';
+import {PaginationService} from './pagination/pagination.service';
+import { Http, Response, HttpModule,ConnectionBackend } from '@angular/http';
+import  {SortGridPipe} from './pagination/sorting';
+import { ImageModalComponent } from './image-modal/image-modal.component'
+
 export const routes: Routes =[{
 	path:'register',
 	component:RegisterationComponent,
@@ -41,7 +46,9 @@ export const routes: Routes =[{
     HomeComponent,
     PaginationComponent,
     StringFilterPipe,
-    ImageComponent
+    ImageComponent,
+    SortGridPipe,
+    ImageModalComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,7 @@ export const routes: Routes =[{
     BrowserAnimationsModule,
     MdMenuModule,
     NgxPaginationModule,
+    HttpModule,
     RouterModule.forRoot(routes)
     /*RouterModule.forRoot([
 	  	{
@@ -59,7 +67,7 @@ export const routes: Routes =[{
 	])  */  
   ],
   exports:[RouterModule,StringFilterPipe],
-  providers: [],
+  providers: [PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

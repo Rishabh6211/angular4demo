@@ -1,23 +1,25 @@
 <!-- The form controls for the various config parameters -->
-<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead>
+<div id="wrapper">
+<table id="example" class="table table-striped table-bordered table-hover sortable" cellspacing="0" width="100%">
+        <thead >
         	<tr>
         		<th colspan="6"> <label class="control">
             <input type="text" class="form-control" placeholder="search" [(ngModel)]="filter">
         </label></th>
         	</tr>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+            
+            <tr >
+                <th ><button (click)="sortData()"> Name</button></th>
+                <th >Position</th>
+                <th >Office</th>
+                <th >Age</th>
+                <th >Start date</th>
+                <th >Salary</th>
             </tr>
         </thead>
        
         <tbody>
-            <tr *ngFor="let meal of meals | stringFilter: filter | paginate: config">
+            <tr *ngFor="let meal of meals | sortgrid: '-StartDate' | stringFilter: filter | paginate: config">
                 <td>{{meal.name}}</td>
                 <td>{{meal.position}}</td>
                 <td>{{meal.office}}</td>
@@ -25,8 +27,13 @@
                 <td>{{meal.StartDate}}</td>
                 <td>{{meal.Salary}}</td>
             </tr>
+            <!-- <tr *ngIf="itemsTotal == 0">
+                <td colspan="7">No record to display.</td>
+            </tr>  -->
         </tbody>
+
     </table>
+</div>
 
 <div class="columns">
     <!-- <div class="column is-one-third">
