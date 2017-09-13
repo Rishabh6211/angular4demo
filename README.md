@@ -1,3 +1,11 @@
+For test this Demo 
+1)git clone <enter clone link >
+2)cd angular4demo
+3)npm install
+4)ng serve
+5)Open login page and Enter email:rishabh@gmail.com , password:123456789
+6)check pagination on project menu
+
 # FitNess
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
