@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
 import {PaginationInstance} from 'ngx-pagination';
 import {StringFilterPipe} from './filter';
 import {PaginationService} from './pagination.service';
 import {SortGridPipe} from './sorting';
 import  {Underscore} from 'underscore';
 import * as _ from 'underscore';
+import  {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pagination',
@@ -50,7 +51,9 @@ export class PaginationComponent implements OnInit {
     };
 
     private popped = [];
-  constructor(private _paginationService:PaginationService) { }
+    public sortCol = '-StartDate';
+
+    constructor(private _paginationService:PaginationService, private _cd:ChangeDetectorRef,private route:Router) { }
 
   ngOnInit() {
     this.Record();
@@ -91,10 +94,20 @@ export class PaginationComponent implements OnInit {
   console.log("sorted", sorted);
    }*/
    sortData(){
-      var sorted = this.meals;
-      sorted.sort();
-      sorted.reverse();
+      // var sorted = this.meals;
+      // sorted.sort();
+      // sorted.reverse();
+      console.log("sortData ", this.sortCol)
 
+      if(this.sortCol == 'StartDate'){
+          this.sortCol = '-StartDate';
+      }else{
+          this.sortCol = 'StartDate';
+      } 
+      this._cd.markForCheck();
+   }
+   back(){
+     this.route.navigate(['/home']);
    }
 
 }

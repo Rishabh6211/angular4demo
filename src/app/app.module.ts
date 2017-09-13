@@ -11,15 +11,24 @@ import { HomeComponent } from './home/home.component';
 import {MdMenuModule, MdMenuTrigger} from '@angular/material';
 import { PaginationComponent } from './pagination/pagination.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { StringFilterPipe }    from './pagination/filter';
 import { ImageComponent } from './image/image.component';
 import {PaginationService} from './pagination/pagination.service';
 import { Http, Response, HttpModule,ConnectionBackend } from '@angular/http';
 import  {SortGridPipe} from './pagination/sorting';
 import { ImageModalComponent } from './image-modal/image-modal.component'
+import { LoadingModule } from 'ngx-loading';
+import { CookieModule } from 'ngx-cookie';
+import { CarouselModule } from 'angular4-carousel';
+export const routes: Routes =[
 
-export const routes: Routes =[{
+{
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+},  
+{
 	path:'register',
 	component:RegisterationComponent,
 	// loadChildren: './home/home.module#HomeModule'
@@ -57,7 +66,11 @@ export const routes: Routes =[{
     BrowserAnimationsModule,
     MdMenuModule,
     NgxPaginationModule,
+    FlashMessagesModule,
     HttpModule,
+    LoadingModule,
+    CarouselModule,
+    CookieModule.forRoot(), 
     RouterModule.forRoot(routes)
     /*RouterModule.forRoot([
 	  	{

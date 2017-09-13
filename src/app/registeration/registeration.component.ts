@@ -19,6 +19,7 @@ import { trigger,state,style,transition,animate,keyframes } from '@angular/anima
 })
 export class RegisterationComponent implements OnInit {
  //@Input() Component: Component;
+ public loading = false;
  public user = {
       username:'',
       email:'',
@@ -31,7 +32,11 @@ state: string = 'small';
   constructor() { }
 
   ngOnInit() {
-
+    this.loading = true;
+      setTimeout(()=>{    
+        this.loading = false;
+      console.log('loaderStopped');
+    },2000);
   }
   
 

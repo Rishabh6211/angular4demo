@@ -6,6 +6,7 @@ import { FormsModule }   from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
  import { BrowserModule } from '@angular/platform-browser';
  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ import { LoadingModule } from 'ngx-loading';
 // const routes: Routes = [
 // {
 // 	path : 'register',
@@ -22,7 +23,8 @@ import { CustomFormsModule } from 'ng2-validation'
    FormsModule,
    CustomFormsModule,
    BrowserModule,
-   BrowserAnimationsModule
+   BrowserAnimationsModule,
+   LoadingModule
    // RouterModule.forRoot()  
    // RouterModule.forChild(routes),
    ],

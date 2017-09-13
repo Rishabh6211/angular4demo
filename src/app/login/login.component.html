@@ -1,4 +1,5 @@
  <div class="container py-3">
+ <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <div class="row">
         <div class="col-md-6 col-lg-4 mx-auto">
                 <div class="card card-body">
@@ -6,11 +7,11 @@
                     <!-- <div class="alert alert-danger">
                         <a class="close" data-dismiss="alert" href="#" *ngIf="username.error?.required && username.touched">×</a>Username is required .
                     </div> -->
-                <form #loginForm="ngForm">    
+                <form #loginForm="ngForm" (ngSubmit)="submit()">    
                     <fieldset>
                     	
                         <div class="form-group required">
-                            <input class="form-control input-lg" #email="ngModel" [(ngModel)]="nuser.email" placeholder="E-mail Address" name="email" type="email" email required/>
+                            <input class="form-control input-lg" #email="ngModel" [(ngModel)]="nuser.email" placeholder="E-mail" name="email" type="email" email required/>
                             <div class="error-block">
                             <small *ngIf="email.errors?.required && email.touched" class="alert alert-danger"> email is required</small>
                             <small *ngIf="email.errors?.email && email.touched" class="alert alert-danger"> email is Invalid</small>
@@ -50,6 +51,7 @@
                         </div>
                         <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" [disabled]="!loginForm.valid">
                     </fieldset>
+
                 </form>
                 </div>
         </div>
