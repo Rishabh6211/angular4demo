@@ -21,6 +21,10 @@ import { ImageModalComponent } from './image-modal/image-modal.component'
 import { LoadingModule } from 'ngx-loading';
 import { CookieModule } from 'ngx-cookie';
 import { CarouselModule } from 'angular4-carousel';
+import {ActiveRouteGuard} from './Services/activate-route-guard';
+import {DeactiveRouteGuard}  from './Services/deactivate-route-guard';
+
+import { AgmCoreModule } from '@agm/core';
 export const routes: Routes =[
 
 {
@@ -31,6 +35,7 @@ export const routes: Routes =[
 {
 	path:'register',
 	component:RegisterationComponent,
+  
 	// loadChildren: './home/home.module#HomeModule'
 	 
 },
@@ -40,11 +45,13 @@ export const routes: Routes =[
 },
 {
   path:'home',
-  component:HomeComponent,   
+  component:HomeComponent,
+  canActivate: [DeactiveRouteGuard]   
 },
 {
   path:'pagination',
-  component:PaginationComponent,   
+  component:PaginationComponent, 
+  canActivate: [DeactiveRouteGuard]  
 }
 ];
 @NgModule({
@@ -71,7 +78,10 @@ export const routes: Routes =[
     LoadingModule,
     CarouselModule,
     CookieModule.forRoot(), 
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+     AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCH6oh1ZAGzd0_XGSck6y4mFO1qtLPTo-A'
+    })
     /*RouterModule.forRoot([
 	  	{
 		    path: 'register',
@@ -80,7 +90,7 @@ export const routes: Routes =[
 	])  */  
   ],
   exports:[RouterModule,StringFilterPipe],
-  providers: [PaginationService],
+  providers: [PaginationService,ActiveRouteGuard,DeactiveRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

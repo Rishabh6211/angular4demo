@@ -1,34 +1,39 @@
+ <div class="container">
+    <ngx-loading style="height: 100% !important" [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+    <div class="nav">
+	
+  	<md-menu #menu="mdMenu">
 
-<div class="nav">
-	 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-	<md-menu #menu="mdMenu">
-
-  		<button md-menu-item (click)="pagination()">Pagination</button>
-  		<button md-menu-item>Project2</button>
-      
-	</md-menu>
- 	<button md-menu-item>
-    	<span> Home </span>
-  	</button>
-  	<button md-menu-item>
-    	<span> Portfolio </span>
-  	</button>
-  	<button md-menu-item>
-    	<span> Contact </span>
-  	</button>
-    <md-menu #user="mdMenu">
-     <!--  <button md-menu-item>Welcome {{data.username}}</button> -->
-      <button md-menu-item (click)="logout()">Logout</button>
-    </md-menu>
-  	<button md-menu-item  [mdMenuTriggerFor]="menu">Project</button>
-    <button md-menu-item  [mdMenuTriggerFor]="user">Hello {{data.username}}</button>
+    		<button md-menu-item (click)="pagination()">Pagination</button>
+    		<button md-menu-item>Project2</button>
+        
+  	</md-menu>
+   	<button md-menu-item>
+      	<span> Home </span>
+    	</button>
+    	<button md-menu-item>
+      	<span> Portfolio </span>
+    	</button>
+    	<button md-menu-item>
+      	<span> Contact </span>
+    	</button>
+      <md-menu #user="mdMenu">
+       <!--  <button md-menu-item>Welcome {{data.username}}</button> -->
+        <button md-menu-item (click)="logout()">Logout</button>
+      </md-menu>
+    	<button md-menu-item  [mdMenuTriggerFor]="menu">Project</button>
+      <button md-menu-item  [mdMenuTriggerFor]="user">Hello {{data.username}}</button>
   	
   
    
   	
- </div>
+   </div>
 
-<div style="width: 100%; height: 400px">
-  <carousel [sources]="imageSources" [config]="config"></carousel>
+  <div style="width: 100%; height: 400px">
+    <carousel [sources]="imageSources" [config]="config"></carousel>
+  </div>
+    
+   <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 </div>
-  

@@ -5,7 +5,9 @@ import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 import { Router, RouterModule} from '@angular/router';
 
 
+
 @Component({
+  moduleId: module.id,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -14,7 +16,8 @@ export class HomeComponent implements OnInit {
  @ViewChild(MdMenuTrigger) trigger: MdMenuTrigger;
  public data:any;
  public loading = false;
-
+  lat: number = 30.7333;
+  lng: number = 76.7794;
  public imageSources: string[] = [
      'assets/images/1.jpg',
      'assets/images/2.jpg',
@@ -36,11 +39,20 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   	this.loading = true;
   	this.data = this.cookieService.getObject('data');
-  	console.log("cookie",this.cookieService.getObject('data'));
+  
   	setTimeout(()=>{    
 		    this.loading = false;
 			console.log('loaderStopped');
 		},2000);
+
+
+   /* var mapProp = {
+            center: new google.maps.LatLng(51.508742, -0.120850),
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);*/
+  
 
   }
   logout(){

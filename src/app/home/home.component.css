@@ -4,3 +4,10 @@
 	height: 50px;
 	padding-bottom: 30px;
 }
+agm-map {
+  height: 300px;
+  max-width: 500px;
+}
+.container{
+	width: 100%;
+}
