@@ -93,4 +93,5 @@ export const routes: Routes =[
   providers: [PaginationService,ActiveRouteGuard,DeactiveRouteGuard],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
