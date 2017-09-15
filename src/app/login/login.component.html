@@ -50,9 +50,11 @@
                             </label>
                         </div>
                         <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" [disabled]="!loginForm.valid">
+
                     </fieldset>
 
                 </form>
+                    <button class="btn btn-danger" (click)="signIn('google')">Signin with google</button>
                 </div>
         </div>
     </div>

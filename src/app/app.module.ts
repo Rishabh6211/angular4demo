@@ -23,8 +23,22 @@ import { CookieModule } from 'ngx-cookie';
 import { CarouselModule } from 'angular4-carousel';
 import {ActiveRouteGuard} from './Services/activate-route-guard';
 import {DeactiveRouteGuard}  from './Services/deactivate-route-guard';
-
+import { Angular2SocialLoginModule } from "angular2-social-login";
 import { AgmCoreModule } from '@agm/core';
+
+let provider = {
+    "google": {
+      "clientId": "884784528076-g847vp5ikcef7p0kp3pd1q23meaigujh.apps.googleusercontent.com"
+    }
+    /*"linkedin": {
+      "clientId": "LINKEDIN_CLIENT_ID"
+    },
+    "facebook": {
+      "clientId": "FACEBOOK_CLIENT_ID",
+      "apiVersion": "<version>" //like v2.4 
+    }*/
+  };
+
 export const routes: Routes =[
 
 {
@@ -77,6 +91,7 @@ export const routes: Routes =[
     HttpModule,
     LoadingModule,
     CarouselModule,
+    Angular2SocialLoginModule,
     CookieModule.forRoot(), 
     RouterModule.forRoot(routes),
      AgmCoreModule.forRoot({
@@ -95,3 +110,4 @@ export const routes: Routes =[
 })
 
 export class AppModule { }
+Angular2SocialLoginModule.loadProvidersScripts(provider);

@@ -3,6 +3,7 @@ import {MdMenuModule, MdMenuTrigger} from '@angular/material';
 import { CookieService } from 'ngx-cookie';
 import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 import { Router, RouterModule} from '@angular/router';
+import { AuthService } from "angular2-social-login";
 
 
 
@@ -14,6 +15,7 @@ import { Router, RouterModule} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
  @ViewChild(MdMenuTrigger) trigger: MdMenuTrigger;
+ 
  public data:any;
  public loading = false;
   lat: number = 30.7333;
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
     autoplayDelay: 2000,
     stopAutoplayMinWidth: 768,
   };
-  constructor(private cookieService: CookieService,private _route:Router) {
+  constructor(private cookieService: CookieService,private _route:Router,public _auth: AuthService ) {
    }
 
   ngOnInit() {
@@ -42,7 +44,7 @@ export class HomeComponent implements OnInit {
   
   	setTimeout(()=>{    
 		    this.loading = false;
-			console.log('loaderStopped');
+			
 		},2000);
 
 
@@ -59,6 +61,7 @@ export class HomeComponent implements OnInit {
     this.cookieService.removeAll();
     this._route.navigate(['/login']);
   }
+
   pagination(){
      this.loading = true;
      
